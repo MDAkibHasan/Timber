@@ -1,0 +1,50 @@
+﻿@model TimberV2.Models.Comment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Comment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CommentBody)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommentBody)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Blog.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Blog.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.UserEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.UserEmail)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CommentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

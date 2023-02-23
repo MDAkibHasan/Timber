@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Navbar.cshtml";
+}
+
+<style>
+    .float-anim {
+        animation: floatingUpDown 2.2s linear infinite;
+    }
+</style>
+
+<div class="container text-center" style="margin-top: 14rem;">
+    <div class="row row-cols-4">
+        <div class="col">
+            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                <div class="card-header">Total Users</div>
+                <div class="card-body">
+                    <h1 class="card-text float-anim" style="font-weight: bolder;"><i class="fa-solid fa-users"></i></h1>
+                    <h3 class="card-title mt-5 bg-white text-primary" style="border-radius: 10px;">@ViewData["users_number"]</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white  bg-secondary mb-3" style="max-width: 18rem;">
+                <div class="card-header">Total Items in Inventory</div>
+                <div class="card-body">
+                    <h1 class="card-text float-anim" style="font-weight: bolder;"><i class="fa-solid fa-warehouse"></i></h1>
+                    <h3 class="card-title mt-5 bg-white text-secondary" style="border-radius: 10px;">@ViewData["items_number"]</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                <div class="card-header">Current Active Category</div>
+                <div class="card-body">
+                    <h1 class="card-text float-anim" style="font-weight: bolder;"><i class="fa-solid fa-sitemap"></i></h1>
+                    <h3 class="card-title mt-5 bg-white text-success" style="border-radius: 10px;">@ViewData["cat_number"]</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                <div class="card-header">Total Number of Blogs</div>
+                <div class="card-body">
+                    <h1 class="card-text float-anim" style="font-weight: bolder;"><i class="fa-solid fa-book"></i></h1>
+                    <h3 class="card-title mt-5 bg-white text-danger" style="border-radius: 10px;">@ViewData["blogs_number"] </h3>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                <div class="card-header">Total Revenue</div>
+                <div class="card-body">
+                    <h1 class="card-text float-anim" style="font-weight: bolder;"><i class="fa-solid fa-database"></i></h1>
+                    <h3 class="card-title mt-5 bg-white text-warning" style="border-radius: 10px;">@ViewData["tk_amount"]</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                <div class="card-header">Total Order Received</div>
+                <div class="card-body">
+                    <h1 class="card-text float-anim" style="font-weight: bolder;"><i class="fa-solid fa-user-clock"></i></h1>
+                    <h3 class="card-title mt-5 bg-white text-info" style="border-radius: 10px;">@ViewData["orders_number"] </h3>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-header">Total Order Completed</div>
+                <div class="card-body">
+                    <h1 class="card-text float-anim" style="font-weight: bolder;"><i class="fa-solid fa-person-circle-check"></i></h1>
+                    <h3 class="card-title mt-5 bg-dark text-light" style="border-radius: 10px;">@ViewData["com_number"]</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                <div class="card-header">Total Suppliers in System</div>
+                <div class="card-body">
+                    <h1 class="card-text float-anim" style="font-weight: bolder;"><i class="fa-solid fa-handshake"></i></h1>
+                    <h3 class="card-title mt-5 bg-white text-dark" style="border-radius: 10px;">@ViewData["sup_number"]</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+﻿@model IEnumerable<TimberV2.Models.Order>
+
+@{
+    ViewBag.Title = "Customer_Order";
+ 
+
+
+}
+
+
+
+<script src="~/Content/jquery-1.10.2.min.js"></script>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TkAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderStatus)
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TkAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderStatus)
+            </td>
+            <td>
+
+                <a href="#" class="btn btn-success" onclick="showDetails(@item.OrderID)">Details</a>
+
+            </td>
+
+        </tr>
+    }
+
+</table>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+             
+             
+               
+            </div>
+            <div class="modal-body" id="myModalBodyDiv">
+
+
+            </div>
+            
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+    <script>
+
+
+
+        var showDetails = function (orderID) {
+
+            $.ajax({
+
+                type: "POST",
+                url: "/Orders/Order_Details",
+                data: { OrderID: orderID },
+                success: function (response) {
+
+                    $("#myModalBodyDiv").html(response);
+
+                    $("#myModal").modal("show");
+
+
+        }
+
+    })
+        }
+    </script>

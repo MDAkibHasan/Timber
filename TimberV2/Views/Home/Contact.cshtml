@@ -1,0 +1,192 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="universal.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body style=" background: #CFFDE1;">
+
+    <style>
+
+        /*----- contact css -----*/
+
+        .single_contact_info {
+            margin-bottom: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+            .single_contact_info i {
+                display: inline-block;
+                float: left;
+                font-size: 36px;
+                height: auto;
+                line-height: 60px;
+                margin-bottom: 20px;
+                width: auto;
+            }
+
+            .single_contact_info p {
+                float: left;
+                margin-bottom: 0;
+                margin-top: 4px;
+                padding-left: 16px;
+            }
+
+        #main_form .form-group {
+            margin-bottom: 30px;
+        }
+
+        .cform_box {
+            width: 100%;
+            background: #18ba60;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.02);
+        }
+
+        #main_form .form-control {
+            font-size: 15px;
+            line-height: 20px;
+            padding: 12px;
+            display: block;
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            outline: none;
+            box-shadow: none;
+            height: 50px;
+            line-height: 50px;
+            transition: .5s;
+            border-radius: 0;
+        }
+
+            #main_form .form-control:focus {
+                border-color: #18ba60;
+                box-shadow: none;
+            }
+
+        #main_form textarea.form-control {
+            height: 140px;
+            line-height: 25px;
+        }
+    </style>
+
+    <!-- Start Contact Area -->
+    <div id="contact_area" class="contact_area section_padding bg_white" style="margin-top: 3.3rem;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
+                    <div class="section_title">
+                        <h2 style="color:green; font-size: xx-large;">Contact Us</h2>
+                        <p style="color:#111; font-size: smaller;">Hello everyone! Timber team is here. For any queries, <br>feel free to contact with us!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GOOGLE MAP -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="flat-map"></div>
+            </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+        <!-- /GOOGLE MAP -->
+        <div class="contact__infos">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="content_left_title">
+                            <h3 style="color:green; font-size: x-large;">Lets Get In Touch</h3>
+                            <p style="color:#111; font-size: small;">Please fill up the form and tell us in details about your your query. We will contact with you soon!</p>
+                        </div>
+                        <div class="single_contact_info">
+                            <i class="fa-solid fa-phone" style="color:green; font-size: x-large;"></i>
+                            <p style="color:#111; font-size: small;">
+                                +01521 111 000 <br />
+                                +01886 111 000
+                            </p>
+                        </div>
+                        <div class="single_contact_info">
+                            <i class="fa-solid fa-globe" style="color:green; font-size: x-large;"></i>
+                            <p style="color:#111; font-size: small;">
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=timber.plant.bd@gmail.com&su=SUBJECT&body=BODY">
+                                    timber.plant.bd@gmail.com
+                                </a><br />
+                                timber.com
+                            </p>
+                        </div>
+                        <div class="single_contact_info">
+                            <a href="https://goo.gl/maps/GmNJeTSycsQgYX8D6">
+                                <i class="fa-solid fa-map-location-dot" style="color:green; font-size: x-large;"></i>
+                                <p style="color:#111; font-size: small;">
+                                    141 & 142, Love Road, <br> Tejgaon Industrial Area, Dhaka-1208.
+                                </p>
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-7 col-xs-12">
+                        <div class="cform_box">
+
+                            <!-- comment-form -->
+                            <form id="contact-form" action="mail.php" method="post">
+                                <div id="main_form">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" name="name" placeholder="Name">
+                                            </div>
+                                        </div><!-- End Col -->
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <input class="form-control" type="email" name="email" placeholder="E-mail">
+                                            </div>
+                                        </div><!-- End Col -->
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" name="phone" placeholder="Phone">
+                                            </div>
+                                        </div><!-- End Col -->
+
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" name="subject" placeholder="Subject">
+                                            </div>
+                                        </div><!-- End Col -->
+
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                                <textarea class="form-control" name="message" cols="10" rows="4" placeholder="Message"></textarea>
+                                            </div>
+                                        </div><!-- End Col -->
+
+                                        <div class="col-xs-12">
+                                            <div class="form_btn text-center">
+                                                <button type="submit" class="btn btn-outline-light">Send message</button>
+                                            </div>
+                                        </div> <!-- End Col -->
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- comment-form-end end -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Contact Area -->
+
+    <script src="javascript/gmap3.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIEU6OT3xqCksCetQeNLIPps6-AYrhq-s&region=GB"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

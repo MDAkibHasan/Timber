@@ -1,0 +1,9 @@
+﻿@keyframes floatingUpDown {
+    0%, 100% {
+        transform: translateY(0.2rem);
+    }
+
+    50% {
+        transform: translateY(-0.2rem);
+    }
+}

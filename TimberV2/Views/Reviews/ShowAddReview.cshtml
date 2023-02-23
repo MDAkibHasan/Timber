@@ -1,0 +1,47 @@
+﻿@model IEnumerable<TimberV2.Models.Review>
+
+
+<div class="row">
+
+    @if (ViewData["can_comment"] != null)
+
+    {
+        
+           
+                using (Html.BeginForm("ShowAddReview", "Reviews", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <input type="text" name="Review">
+
+
+                    <input type="submit" value="Add Review" class="btn btn-success" />
+
+
+                }
+        
+   
+    }
+    @foreach (var rvw in Model)
+    {
+
+
+
+
+            <div class="card mt-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><span class="text-secondary"><i class="fa-solid fa-user"></i><i class="fa-solid fa-comment-dots"></i></span> @rvw.User.UserName </h5>
+
+                    <p class="card-text">@rvw.ReviewDesc</p>
+
+
+                </div>
+            </div>
+    
+
+
+
+
+    }
+
+</div>

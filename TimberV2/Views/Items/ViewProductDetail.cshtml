@@ -1,0 +1,80 @@
+﻿
+@model TimberV2.Models.Item
+
+@{
+    ViewBag.Title = "ViewProductDetail";
+}
+
+
+
+@using (Html.BeginForm("ViewProductDetail", "Items", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="card mx-auto mt-5" style="width: 85%;">
+        <div class="container" style="margin-top: 100px;">
+            <div class="row">
+                <div class="col-lg-8 pb-1">
+                    <img class="d-block w-100 img-fluid" style="height:450px; width:auto;" src="~/Content/up/@ViewData["img_src"]" alt="">
+                </div>
+                <div class="col-lg-4" style="color: #555;">
+
+                    <h2>    @Html.DisplayFor(model => model.ItemName)</h2>
+                    <p>Product Code: @Html.DisplayFor(model => model.ItemID) </p>
+                    <p class="price" style="padding-top: 1%; font-weight: bold; font-size: larger;">BDT  @Html.DisplayFor(model => model.ItemPrice)/-</p>
+
+                    @if (Model.ItemQuantity == 0)
+                    {
+                        <span style="color:red"> <p><b>Availability:</b> Not In Stock</p></span>
+
+                    }
+                    else
+                    {
+                        <span style="color:green;"><p><b>Availability:</b>In Stock</p></span>
+                    }
+
+                    <h3>About This Item: </h3>
+                    <p>
+                        @Html.DisplayFor(model => model.ItemDesc)
+                    </p>
+
+
+                    <li>Catagory: <span> @Html.DisplayFor(model => model.Category.CategoryName)</span></li>
+                    <li>Supplier: <span> @Html.DisplayFor(model => model.Supplier.SName)</span></li>
+                    <li>Supplier: <span> @Html.DisplayFor(model => model.Supplier.SAddress)</span></li>
+                    <input type="hidden" name="user_id" value="@ViewData["user_id"]">
+                    <input type="hidden" name="item_id" value="@ViewData["item_id"]">
+
+
+                    <label>Quantity:</label>
+
+                    <input type="number" name="quantity" id="quantity" min="0" max="@ViewData["item_quantity"]" style="border: 1px solid #ccc; font-weight: bold; height: 33px; text-align: center; width: 50px;">
+
+                    @if (Model.ItemQuantity != 0)
+                    {
+                        <div class="form-group mt-3">
+
+                            <input type="submit" value="Add To Cart" class="btn btn-success" />
+
+                        </div>}
+
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+    </div>
+}
+@{
+
+    if (Session["user_id"] != null)
+    {
+        Html.RenderAction("ShowAddReview", "Reviews", new { @id = Model.ItemID });
+    }
+
+
+}
+

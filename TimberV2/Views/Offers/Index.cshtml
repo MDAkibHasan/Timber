@@ -1,0 +1,150 @@
+﻿@model IEnumerable<TimberV2.Models.Offer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Navbar.cshtml";
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OfferTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OfferDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OfferArt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HasDiscount)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfferTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfferDesc)
+            </td>
+            <td>
+              
+                <img src="~/Content/Offers/@item.OfferArt" style="height:100px; width:200px;"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasDiscount)
+            </td>
+            <td>
+                <a href="#" class="btn btn-primary" onclick="edit(@item.OfferID)">Edit</a>
+                <a href="#" class="btn btn-dark" onclick="details(@item.OfferID)">Details</a>
+                <a href="#" class="btn btn-danger" onclick="deleted(@item.OfferID)">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+<a href="#" class="btn btn-primary" onclick="create(@int.MaxValue)">Create</a>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog" style="border:5px solid green;">
+        <div class="modal-content">
+
+            <div class="modal-body" id="myModalBodyDiv">
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+
+
+    var create = function (intMAX) {
+
+        $.ajax({
+
+            type: "GET",
+            url: "/Offers/Create",
+            data: { id: intMAX },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+
+    }
+    var edit = function (editID) {
+
+        $.ajax({
+
+            type: "GET",
+            url: "/Offers/Edit",
+            data: { id: editID },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+    }
+    var details = function (detailsID) {
+        $.ajax({
+
+            type: "POST",
+            url: "/Offers/Details",
+            data: { id: detailsID },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+
+    }
+
+    var deleted = function (delID) {
+
+        $.ajax({
+
+            type: "GET",
+            url: "/Offers/Delete",
+            data: { id: delID },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+
+
+    }
+
+</script>
+
+

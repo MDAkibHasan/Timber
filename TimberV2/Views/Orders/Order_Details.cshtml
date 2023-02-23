@@ -1,0 +1,47 @@
+﻿@model IEnumerable<TimberV2.Models.OrderedItem>
+
+@{
+    ViewBag.Title = "Order_Details";
+    Layout = null;
+}
+
+
+
+
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.OrderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Item.ItemName)
+        </th>
+        
+        <th>Picture</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Item.ItemName)
+        </td>
+        <td>
+            <img src="~/Content/up/@item.Item.ItemArt" alt="" style="height:100px; width:100px;">
+
+        </td>
+     
+    </tr>
+}
+
+</table>

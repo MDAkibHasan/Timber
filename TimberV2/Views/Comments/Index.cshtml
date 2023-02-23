@@ -1,0 +1,96 @@
+﻿@model IEnumerable<TimberV2.Models.Comment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Navbar.cshtml";
+}
+
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommentBody)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Blog.Title)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommentBody)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Blog.Title)
+            </td>
+
+            <td>
+
+                <a href="#" class="btn btn-danger" onclick="deleted(@item.CommentID)">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog" style="border:5px solid green;">
+        <div class="modal-content">
+
+            <div class="modal-body" id="myModalBodyDiv">
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+
+
+
+
+
+
+    var deleted = function (delID) {
+
+        $.ajax({
+
+            type: "GET",
+            url: "/Comments/Delete",
+            data: { id: delID },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+
+
+    }
+
+</script>
+
+

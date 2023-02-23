@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="universal.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="@Url.Content("~/Content/admin_navbar")" rel="stylesheet" type="text/css">
+</head>
+<body style=" background: #CFFDE1;">
+
+    <!--user navbar-->
+    <!-- A green horizontal navbar that becomes vertical on small screens -->
+    <nav class="navbar navbar-expand-sm bg-dark fixed-top" style="border-bottom: 2px yellowgreen solid;">
+        <div class="container-fluid">
+            <a href="#" class="navbarLogo"><i class="fas fa-seedling"></i> Timber </a>
+            <style>
+                .customNavHeader{
+                    position: fixed;
+
+                }
+                .navbarLogo{
+                    font-size: 1.8rem;
+                    color: whitesmoke;
+                    font-weight: bolder;
+                    text-decoration: none;
+                }
+                .navbarLogo:hover{
+                    color: greenyellow;
+                }
+                .navbarLogo i{
+                    padding-right: .8rem;
+                    color: greenyellow;;
+                    animation: floatingUpDown 3.2s linear infinite;
+                }
+          
+                .customNavLink{
+                    font-size: 0.7rem;
+                    font-weight: bold;
+                    color: white;
+                    margin: 0 0.2rem;
+                    text-decoration: none;
+                }
+                .customNavLink:hover{
+                    color: greenyellow;
+                }
+
+                .greenColor{
+                    color:white;
+                }
+                .greenColor:hover{
+                    color:yellowgreen;
+                }
+            </style>
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link customNavLink" href="@Url.Action("ViewUser","Admin")"><i class="fa-solid fa-user"></i> User</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link customNavLink" href="@Url.Action("Index","Items")"><i class="fa-solid fa-box"></i> Item</a>
+                </li>
+                <a class="nav-link customNavLink" href="@Url.Action("Index","Categories")"><i class="fa-solid fa-sitemap"></i> Category</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link customNavLink" href="@Url.Action("Index","Suppliers")"><i class="fa-solid fa-truck-field"></i> Supplier</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link customNavLink" href="@Url.Action("Index","Blogs")"><i class="fa-brands fa-blogger"></i> Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link customNavLink" href="@Url.Action("Index","Orders")"><i class="fa-solid fa-file-circle-check"></i> Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link customNavLink" href="@Url.Action("Index","Payments")"><i class="fa-solid fa-bangladeshi-taka-sign"></i> Payment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link customNavLink" href="@Url.Action("Index","Comments")"><i class="fa-solid fa-comment-slash"></i> Comment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link customNavLink" href="@Url.Action("Index","Discounts")"> <i class="fa-solid fa-percent"></i>Discount</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link customNavLink" href="@Url.Action("Index","Offers")"> <i class="fa-solid fa-tag"></i> Offers</a>
+
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link customNavLink" href="@Url.Action("Index","Reviews")"> <i class="fa-solid fa-tag"></i> Reviews</a>
+
+         
+
+
+
+            </ul>
+            <ul class="navbar-nav">
+                <!--
+                <li class="nav-item" style="font-size: 1.2rem; margin-top: .3rem;">
+                    <a href="#"><i class="fas fa-shopping-cart greenColor"></i></a>
+                </li>
+                -->
+                <style>
+
+                    .header-cart a {
+                        color: green;
+                        font-size: 1.2rem;
+                        position: relative;
+                        margin-top: .8rem;
+                    }
+
+                        .header-cart a:hover {
+                            color: greenyellow;
+                        }
+
+                        .header-cart a span {
+                            position: absolute;
+                            right: -1.2rem;
+                            top: -.4rem;
+                            background-color: red;
+                            font-family: 'Rubik';
+                            color: #fff;
+                            border-radius: 50%;
+                            padding: .12rem .2rem;
+                            font-size: 0.6rem;
+                            width: 1.2rem;
+                            height: 1.2rem;
+                            line-height: 1rem;
+                            text-align: center;
+                        }
+                </style>
+                <div class="nav-item">
+                    <!--
+                        ==>>if user not logged in, show this icon:
+                        <i class="fa-solid fa-user-xmark" style=" margin-left: 2rem;font-size: 1.1rem; margin-top: .6rem; color:red"></i>
+                        ==>>if user logged in, show this icon:
+                        <i class="fa-solid fa-user-check" style=" margin-left: 2rem;font-size: 1.1rem; margin-top: .6rem; color:green"></i>
+
+                    -->
+                    <i class="fa-solid fa-screwdriver-wrench" style=" margin-left: 2rem;font-size: 1.1rem; margin-top: .6rem; color:white;"></i>
+
+
+                </div>
+                <li class="nav-item dropdown">
+                    <!--==
+                        >>show User name in below Login/Register if logged in and only show Dashboard and Logout
+                    -->
+                    <a class="nav-link dropdown-toggle customNavLink" href="" role="button" data-bs-toggle="dropdown">Welcome, ADMIN</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="@Url.Action("Index","Admin")"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                        <li><a class="dropdown-item" href="@Url.Action("logout","User")"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                        <!--
+
+                        -->
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+
+    <div style="margin-bottom:5rem;">
+
+
+    </div>
+    <!--
+        <img src="user.jpg" alt="" style="border:2px solid red; margin-top: 3.3rem;">
+
+    -->
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+ 
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "CartCount";
+}
+
+<div class="header-cart text-center" style="margin-top: .33rem;">
+    <li>
+        <a href="@Url.Action("Index","DraftCarts")">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="cart-total-number">@ViewData["cart_number"]</span>
+        </a>
+    </li>
+</div>
+

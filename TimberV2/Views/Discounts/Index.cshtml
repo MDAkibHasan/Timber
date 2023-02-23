@@ -1,0 +1,144 @@
+﻿@model IEnumerable<TimberV2.Models.Discount>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Navbar.cshtml";
+}
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DiscountPercent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Item.ItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Offer.OfferTitle)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiscountPercent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Offer.OfferTitle)
+            </td>
+            <td>
+                <a href="#" class="btn btn-primary" onclick="edit(@item.DiscountID)">Edit</a>
+                <a href="#" class="btn btn-dark" onclick="details(@item.DiscountID)">Details</a>
+                <a href="#" class="btn btn-danger" onclick="deleted(@item.DiscountID)">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+<a href="#" class="btn btn-primary" onclick="create(@int.MaxValue)">Create</a>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog" style="border:5px solid green;">
+        <div class="modal-content">
+
+            <div class="modal-body" id="myModalBodyDiv">
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+
+
+    var create = function (intMAX) {
+
+        $.ajax({
+
+            type: "GET",
+            url: "/Discounts/Create",
+            data: { id: intMAX },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+
+    }
+    var edit = function (editID) {
+
+        $.ajax({
+
+            type: "GET",
+            url: "/Discounts/Edit",
+            data: { id: editID },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+    }
+    var details = function (detailsID) {
+        $.ajax({
+
+            type: "GET",
+            url: "/Discounts/Details",
+            data: { id: detailsID },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+
+    }
+
+    var deleted = function (delID) {
+
+        $.ajax({
+
+            type: "GET",
+            url: "/Discounts/Delete",
+            data: { id: delID },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+
+
+    }
+
+</script>
+
+

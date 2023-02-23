@@ -1,0 +1,136 @@
+﻿@model TimberV2.Models.User
+
+@{
+    ViewBag.Title = "SignUp";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body style=" background: #CFFDE1;">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="container">
+
+            <div class="row mt-5">
+                <div class="col-lg-4 bg-white m-auto" style="border: #5cb85c 2px solid; border-radius: 5px;">
+                    <h2 class="text-center pt-3 text-success">Signup Now</h2>
+                    <p class="text-center text-muted lead">It'll take less than a minute</p>
+
+                    <div class="mb-5" style="background-color: green; margin-left: 3%; margin-right: 3%; padding-bottom: 2px;"></div>
+
+
+                    <!-- FORM START-->
+                  
+                        <!--Name-->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                           
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                          
+                            </div>
+
+                        <!--Address-->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="fa-solid fa-location-dot"></i></span>
+                          
+                                @Html.EditorFor(model => model.UserAddress, new { htmlAttributes = new { @class = "form-control" } })
+                         
+                        </div>
+                        <!--Email-->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                           
+                                @Html.EditorFor(model => model.UserEmail, new { htmlAttributes = new { @class = "form-control" } })
+                        
+                        </div>
+
+                        <!--Password-->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                          
+                                @Html.EditorFor(model => model.UserPass, new { htmlAttributes = new { @class = "form-control" } })
+                      
+                            <span class="toggle" onclick="hidetoggle()" style="margin-left: -0.1px; cursor: pointer;">
+                                <i class="bi bi-eye-slash" id="hidden" style="display:block"></i>
+                                <i class="bi bi-eye" id="showed" style="display:none;"></i>
+                            </span>
+
+                        </div>
+                        <script>
+                            function hidetoggle() {
+                                var x = document.getElementById("passField");
+                                var y = document.getElementById("showed");
+                                var z = document.getElementById("hidden");
+
+                                if (x.type == 'password') {
+                                    x.type = "text";
+                                    y.style.display = "block";
+                                    z.style.display = "none";
+                                } else {
+                                    x.type = "password";
+                                    y.style.display = "none";
+                                    z.style.display = "block";
+                                }
+                            }
+                        </script>
+
+
+                        <!--Confirm Password-->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                     
+                                @Html.EditorFor(model => model.ConfirmUserPassword, new { htmlAttributes = new { @class = "form-control" } })
+                    
+                            <span class="toggle" onclick="hidetoggle()" style="margin-left: -0.1px; cursor: pointer;">
+                                <i class="bi bi-eye-slash" id="hidden2" style="display:block"></i>
+                                <i class="bi bi-eye" id="showed2" style="display:none;"></i>
+                            </span>
+
+                        </div>
+                        <script>
+                            function hidetoggle() {
+                                var x = document.getElementById("passField2");
+                                var y = document.getElementById("showed2");
+                                var z = document.getElementById("hidden2");
+
+                                if (x.type == 'password') {
+                                    x.type = "text";
+                                    y.style.display = "block";
+                                    z.style.display = "none";
+                                } else {
+                                    x.type = "password";
+                                    y.style.display = "none";
+                                    z.style.display = "block";
+                                }
+                            }
+                        </script>
+
+                        <div class="d-grid">
+
+                            <input type="submit" value="Send OTP" class="btn btn-success" />
+                            <p class="text-center">Already Have an account? <a href="login.html">Login Here</a></p>
+                            <a href="@Url.Action("Index","Home")" class="btn btn-outline-warning mt-3 mb-3" style="float:right;">Back To Home</a>
+                        </div>
+
+                   
+                </div>
+            </div>
+
+
+        </div>}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

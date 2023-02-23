@@ -1,0 +1,57 @@
+﻿@model IEnumerable<TimberV2.Models.Payment>
+
+@{
+    ViewBag.Title = "Customer_Payments";
+}
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TrxID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsPaid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order.OrderTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order.TkAmount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrxID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsPaid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.OrderTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.TkAmount)
+        </td>
+
+
+    </tr>
+}
+
+</table>

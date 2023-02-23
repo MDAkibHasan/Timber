@@ -1,0 +1,50 @@
+﻿@model IEnumerable<TimberV2.Models.Supplier>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Navbar.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SAddress)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+
+    if (item.SupplierID != 1)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SAddress)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.SupplierID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.SupplierID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.SupplierID })
+        </td>
+    </tr>
+    }
+}
+</table>

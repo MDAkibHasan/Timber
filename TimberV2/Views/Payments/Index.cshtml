@@ -1,0 +1,124 @@
+﻿@model IEnumerable<TimberV2.Models.Payment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Navbar.cshtml";
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TrxID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsPaid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrxID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsPaid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderID)
+            </td>
+
+            @if (Session["user_isAdmin"] != null)
+            {
+            <td>
+           
+
+          
+                <a href="#" class="btn btn-primary" onclick="edit(@item.PaymentID)">Edit</a>
+              
+                <a href="#" class="btn btn-danger" onclick="deleted(@item.PaymentID)">Delete</a>
+            </td>}
+        </tr>
+    }
+
+</table>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog" style="border:5px solid green;">
+        <div class="modal-content">
+
+            <div class="modal-body" id="myModalBodyDiv">
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+
+
+
+    var edit = function (editID) {
+
+        $.ajax({
+
+            type: "GET",
+            url: "/Payments/Edit",
+            data: { id: editID },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+    }
+
+
+    var deleted = function(delID) {
+
+        $.ajax({
+
+            type: "GET",
+            url: "/Payments/Delete",
+            data: { id: delID },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+
+
+    }
+
+</script>
+

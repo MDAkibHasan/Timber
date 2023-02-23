@@ -1,0 +1,235 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+   
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="@Url.Content("~/Content/universal.css")" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+</head>
+
+<body style=" background: #CFFDE1;">
+
+
+    <style>
+/*----- contact css -----*/
+
+.single_about {
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  padding: 65px 46px 59px;
+  position: relative;
+  text-align: center;
+  transition: all 0.3s ease 0s;
+  z-index: 1;
+}
+
+.single_about:hover{
+
+}
+.single_about .about_icon {
+  margin-bottom: 22px;
+}
+.single_about .about_icon i {
+  color: #18ba60;
+  font-size: 61px;
+  line-height: 70px;
+  transition: all 0.3s ease 0s;
+}
+.single_about .about_content h3 {
+  font-size: 25px;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+.about_areas.bg_white {
+  padding-bottom: 90px;
+}
+.single_about:hover,.single_about.active{
+  background: #18ba60;
+}
+.single_about:hover .about_icon i,.single_about:hover .about_content,.single_about:hover .about_content h3,.single_about.active i,.single_about.active .about_content h3,.single_about.active .about_content {
+  color: #fff;
+}
+.single_about .about_content p{
+  line-height: 26px;
+}
+.why-chooseus.section_gray {
+  padding: 85px 0 0;
+}
+.why-choose-text {
+  margin-bottom: 0;
+  margin-top: 67px;
+  position: relative;
+}
+.why-chooseus.section_gray {
+  padding-top: 30px;
+}
+.why-choose-text .title h2 {
+  color: #000;
+  font-size: 38px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+.why-choose-text .title h2 span {
+  color: #18ba60;
+}
+.why-choose-text .text {
+    margin-bottom: 25px;
+}
+.list-style-three {
+  margin-bottom: 15px;
+  position: relative;
+}
+.list-style-three li {
+  color: #666;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+}
+.list-style-three li::before {
+  color: #18ba60;
+  content: "";
+  font-family: "FontAwesome";
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+
+
+.feature-section .single-item {
+  margin-bottom: 30px;
+  position: relative;
+  transition: all 500ms ease 0s;
+}
+.img-box img {
+  width: 100%;
+}
+.feature-section .single-item:hover {
+    box-shadow: 0 0 10px 5px rgba(231, 231, 231, 0.6);
+    transition: all 500ms ease 0s;
+}
+.feature-section .single-item .single-content {
+  background: #fafafa none repeat scroll 0 0;
+  border: 0 none;
+  padding: 48px 22px 22px 22px;
+  position: relative;
+  transition: all 500ms ease 0s;
+}
+.feature-section .single-item .single-content .icon-box {
+  background: #18ba60 none repeat scroll 0 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(231, 231, 231, 0.95);
+  height: 60px;
+  left: 30px;
+  line-height: 73px;
+  position: absolute;
+  text-align: center;
+  top: -30px;
+  transition: all 0.5s ease 0s;
+  width: 60px;
+}
+.feature-section .single-item:hover .single-content .icon-box {
+  background: #444 none repeat scroll 0 0;
+}
+.feature-section .single-item .single-content .icon-box i::before {
+    color: #fff;
+    font-size: 30px;
+    margin: 0;
+}
+.feature-section .single-item h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+
+.welcome__text {
+  color: #000000;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 1.4em;
+  margin-bottom: 70px;
+  position: relative;
+  text-align: center;
+}
+    </style>
+
+    <!-- Start About Area -->
+    <div id="about_area" class="section_padding about_areas bg_white" style="margin-top: 3.3rem;">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-sm-12 col-xs-12 text-center">
+                    <h2 style="color:green; font-size: xx-large;">About Us</h2>
+                    <p style="color:#111; font-size: large;">We work with the world’s leading organizations to provide fresh plants and necessary items for their organizations</p>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="single_about">
+                        <div class="about_icon">
+                            <i class="fa-solid fa-hourglass-start"></i>
+                        </div>
+                        <div class="about_content">
+                            <h3>
+                                Faster Delivery
+                            </h3>
+                            <p>
+                                We ensure faster delivery from our system through dedicated delivery team to ensure the quality of our organization.
+                            </p>
+                        </div>
+                    </div>
+                </div><!--End Col -->
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="single_about active">
+                        <div class="about_icon">
+                            <i class="fa-regular fa-square-check"></i>
+                        </div>
+                        <div class="about_content">
+                            <h3>
+                                Authentic & Fresh Products
+                            </h3>
+                            <p>
+                                We only sell authentic products from our shop. All our items are maintained A grade quality.
+                            </p>
+                        </div>
+                    </div>
+                </div><!--End Col -->
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="single_about">
+                        <div class="about_icon">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <div class="about_content">
+                            <h3>
+                                Customer Friendly
+                            </h3>
+                            <p>
+                                We are customer friendly. We listen what our customer says and act according to their desire.
+                            </p>
+                        </div>
+                    </div>
+                </div><!--End Col -->
+
+            </div>
+        </div>
+    </div>
+    <!-- End About Area -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

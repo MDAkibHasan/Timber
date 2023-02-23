@@ -1,0 +1,113 @@
+﻿@model TimberV2.Models.ItemVM
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/Admin_Navbar.cshtml";
+
+}
+
+<!DOCTYPE html>
+<html lang="en" style="font-family:'Poppins', sans-serif; margin:0; padding:0;
+                        box-sizing: border-box;outline: none; border:none;text-decoration: none;
+                        text-transform: capitalize;max-width: 1200px; padding: 2rem; margin: 0 auto;font-size: 62.5%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN PAGE</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body style="background: #CFFDE1;">
+
+    <div style="max-width: 1200px; padding:2rem; margin:0 auto;">
+        <div style="display: flex; align-items: center; justify-content: center; min-height: 60vh;">
+            <div style="max-width:100rem; margin:0 auto; padding:2rem; border-radius: .5rem; border:3px solid#5cb85c; background-color: #fff;">
+                @using (Html.BeginForm("Create", "Items", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {@Html.AntiForgeryToken()
+
+
+
+                <h3 style="text-transform: uppercase; color: #000; margin-bottom: 0.5rem; text-align: center; font-size: 2rem;">
+                    Add New Product
+                </h3>
+
+           
+
+                    <div  style="width: 94%; border-radius: .1rem;padding:0.5rem 0.5rem; font-size: 1.5rem; margin:1rem 0; background:#fff; text-transform: none; border:3px solid#5cb85c;">
+
+                        @Html.LabelFor(model => model.ItemName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.ItemName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ItemName, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div  style="width: 94%; border-radius: .2rem;padding:1.2rem 1.5rem; font-size: 1.7rem; margin:1rem 0; background:#fff; text-transform: none; border:3px solid#5cb85c;">
+
+                        @Html.LabelFor(model => model.ItemDesc, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.ItemDesc, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ItemDesc, "", new { @class = "text-danger" })
+
+                    </div>
+               
+              
+
+                    <div style="width: 94%; border-radius: .1rem;padding:0.5rem 0.5rem; font-size: 1.5rem; margin:1rem 0; background:#fff; text-transform: none; border:3px solid#5cb85c;">
+                        @Html.LabelFor(model => model.ItemPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.ItemPrice, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ItemPrice, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div style="width: 94%; border-radius: .1rem;padding:0.5rem 0.5rem; font-size: 1.5rem; margin:1rem 0; background:#fff; text-transform: none; border:3px solid#5cb85c;">
+                        @Html.LabelFor(model => model.ItemQuantity, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.ItemQuantity, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ItemQuantity, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div style="width: 94%; border-radius: .1rem;padding:0.5rem 0.5rem; font-size: 1.5rem; margin:1rem 0; background:#fff; text-transform: none; border:3px solid#5cb85c;">
+
+                        @Html.LabelFor(model => model.SupplierID, "SupplierID", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.DropDownList("SupplierID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SupplierID, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div style="width: 94%; border-radius: .1rem;padding:0.5rem 0.5rem; font-size: 1.5rem; margin:1rem 0; background:#fff; text-transform: none; border:3px solid#5cb85c;">
+                        @Html.LabelFor(model => model.CategoryID, "CategoryID", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                    </div>
+
+
+
+
+
+                <div  style="width: 94%; border-radius: .1rem;padding:0.5rem 0.5rem; font-size: 1.5rem; margin:1rem 0; background:#fff; text-transform: none; border:3px solid#5cb85c;">
+                    @Html.LabelFor(model => model.Picture, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+
+                        <input type="file" name="Picture" id="Picture" required />
+
+
+                    </div>
+                </div>
+
+
+
+                <input type="submit" name="add_pro" value=" ADD " style="display: block; width: 100.5%; cursor: pointer;
+                border-radius: .5rem; margin-top: 1rem; font-size: 1.7rem; padding:1rem 3rem; background: #27ae60;
+                color: #fff; text-align: center;">
+            }
+            </div>
+        </div>
+
+    </div>
+ 
+
+   
+</body>
+
+</html>
+

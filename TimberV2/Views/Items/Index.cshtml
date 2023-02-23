@@ -1,0 +1,73 @@
+﻿@model IEnumerable<TimberV2.Models.Item>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Navbar.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en" style="font-family:'Poppins', sans-serif; margin:0; padding:0;
+                        box-sizing: border-box;outline: none; border:none;text-decoration: none;
+                        text-transform: capitalize;max-width: 1200px; padding: 2rem; margin: 0 auto;font-size: 62.5%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN PAGE</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body style="background: #CFFDE1;">
+
+
+
+    <div style="margin-top:7rem;">
+        <table style="width: 100%; text-align: center;">
+            <thead style="background:darkgray;">
+                <tr>
+                    <th style="padding:1rem; font-size: 2rem;">product image</th>
+                    <th style="padding:1rem; font-size: 2rem;">product name</th>
+                    <th style="padding:1rem; font-size: 2rem;">product price</th>
+                    <th style="padding:1rem; font-size: 2rem;">action</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td style="padding:1rem;
+                font-size: 2rem;
+                border-bottom: .1rem solid #333; background-color: #fff;">
+                        <img src="~/Content/up/@item.ItemArt" height="100" alt="">
+                    </td>
+                    <td style="padding:1rem; font-size: 2rem; border-bottom: .1rem solid #333; background-color: #fff;">
+                        @item.ItemName
+                    </td>
+                    <td style="padding:1rem; font-size: 2rem; border-bottom: .1rem solid #333; background-color: #fff;">
+                        @item.ItemPrice
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit","Items",new { id=item.ItemID })" style="display: block; width: 76%; cursor: pointer;
+                 border-radius: .5rem; margin-top: 1rem; font-size: 1.7rem; padding:1rem 3rem; background: #27ae60;
+                 color: #fff; text-align: center;"><i class="fas fa-edit"></i>edit</a>
+
+                        <a href="@Url.Action("Delete","Items",new { id=item.ItemID})" style="display: block; width: 76%; cursor: pointer;
+                 border-radius: .5rem; margin-top: 1rem; font-size: 1.7rem; padding:1rem 3rem; background:crimson;
+                 color: #fff; text-align: center;"><i class="fas fa-trash"></i>delete</a>
+                    </td>
+                </tr>}
+        </table>
+        <div class="col-md-12 text-center mt-5">
+       <a href="@Url.Action("Create","Items")"> <button type="button" class="btn btn-success btn-lg">Create Item</button></a>
+       
+    </div>
+
+        </div>
+
+    </body>
+
+</html>

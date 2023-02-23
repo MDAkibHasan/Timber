@@ -1,0 +1,42 @@
+﻿@model IEnumerable<TimberV2.Models.Blog>
+
+@{
+    ViewBag.Title = "UserBlogView";
+}
+
+
+<div style="align-content:center;">
+    <section class="text-center">
+        @foreach (var item in Model)
+        {
+
+
+            <div class="card mb-3 mx-auto" style="max-width: 600px;">
+                <div class="row ">
+                    <div class="col-md-6">
+                        <img src="~/Content/blog/@item.BlogArt" class="img-fluid img-thumbnail rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Title</h5>
+                            <p class="card-text">@item.Topic</p>
+                            <p class="card-text"><small class="text-muted">@item.Time</small></p>
+                            <a href="@Url.Action("UserBlogDetails","Blogs",new { id=@item.BlogID})" class="btn btn-success btn-lg">Read Blog</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+      
+
+
+
+
+
+        }
+    </section>
+
+</div>
+
+

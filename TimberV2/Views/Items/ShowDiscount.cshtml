@@ -1,0 +1,10 @@
+﻿
+@if ((int)ViewData["disc"] == 0)
+{
+    <span class="discount " style="color:red">0%</span>
+
+}
+else
+{
+    <b>  <span class="discount " style="color:red">@ViewData["disc"] %</span></b>
+}

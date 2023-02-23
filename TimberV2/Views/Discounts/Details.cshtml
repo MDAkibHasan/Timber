@@ -1,0 +1,43 @@
+﻿@model TimberV2.Models.Discount
+
+@{
+    ViewBag.Title = "Details";
+    Layout = null;
+}
+
+
+
+<div>
+    <h4>Discount</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DiscountPercent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiscountPercent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item.ItemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item.ItemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Offer.OfferTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Offer.OfferTitle)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DiscountID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

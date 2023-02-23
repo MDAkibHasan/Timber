@@ -1,0 +1,169 @@
+﻿@model IEnumerable<TimberV2.Models.Blog>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Navbar.cshtml";
+
+}
+
+<script src="~/Content/jquery-1.10.2.min.js"></script>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Topic)
+        </th>
+    
+        <th>
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Topic)
+            </td>
+        
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                <a href="#" class="btn btn-primary" onclick="edit(@item.BlogID)">Edit</a>
+                <a href="#" class="btn btn-dark" onclick="details(@item.BlogID)">Details</a>
+                <a href="#" class="btn btn-danger" onclick="deleted(@item.BlogID)">Delete</a>
+
+            </td>
+        </tr>
+    }
+
+</table>
+<a href="#" class="btn btn-primary" onclick="create(@int.MaxValue)">Create</a>
+
+
+
+<div class="modal fade"  id="myModal">
+    <div class="modal-dialog" style="border:5px solid green;">
+        <div class="modal-content">
+         
+            <div class="modal-body" id="myModalBodyDiv">
+
+
+            </div>
+           
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+
+
+    var create= function (intMAX) {
+
+        $.ajax({
+
+            type: "GET",
+            url: "/Blogs/Create",
+            data: { id: intMAX },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+
+    }
+    var edit = function (editID) {
+
+        $.ajax({
+
+            type: "GET",
+            url: "/Blogs/Edit",
+            data: { id: editID },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+    }
+    var details = function (detailsID) {
+        $.ajax({
+
+            type: "GET",
+            url: "/Blogs/Details",
+            data: { id: detailsID},
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+
+    }
+
+    var deleted = function(delID) {
+
+        $.ajax({
+
+            type: "GET",
+            url: "/Blogs/Delete",
+            data: { id: delID },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+
+
+    }
+    var showDetails = function (orderID) {
+
+        $.ajax({
+
+            type: "POST",
+            url: "/Orders/Order_Details",
+            data: { OrderID: orderID },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+    }
+</script>
+

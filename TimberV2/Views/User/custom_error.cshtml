@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "custom_error";
+}
+
+
+
+<div class="card">
+    <div class="card-header" style="background-color: red;">
+        <h2 style="color:cornsilk"><i class="fa-solid fa-triangle-exclamation"></i>Oops,Something Went Wrong</h2>
+    </div>
+    <div class="card-body" style="background-color:tan;">
+        <blockquote class="blockquote mb-0">
+            <p>@ViewData["error_msg"]</p>
+         
+        </blockquote>
+
+        <a href="@Url.Action("Index","Home")" ><button type="button" class="btn btn-success mt-5 mb-3"> <i class="fa-solid fa-arrow-left-long"></i> Go Back</button></a>
+    </div>
+</div>

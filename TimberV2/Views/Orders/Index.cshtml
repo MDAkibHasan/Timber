@@ -1,0 +1,150 @@
+﻿@model IEnumerable<TimberV2.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Navbar.cshtml";
+}
+
+<script src="~/Content/jquery-1.10.2.min.js"></script>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TkAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.UserEmail)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TkAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserEmail)
+            </td>
+            <td>
+
+
+                <a href="#" class="btn btn-primary" onclick="edit(@item.OrderID)">Edit</a>
+                <a href="#" class="btn btn-dark" onclick="showDetails(@item.OrderID)">Details</a>
+                <a href="#" class="btn btn-danger" onclick="deleted(@item.OrderID)">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog" style="border:5px solid green;">
+        <div class="modal-content">
+
+            <div class="modal-body" id="myModalBodyDiv">
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+
+
+
+    var edit = function (editID) {
+
+        $.ajax({
+
+            type: "GET",
+            url: "/Orders/Edit",
+            data: { id: editID },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+    }
+    var details = function (detailsID) {
+        $.ajax({
+
+            type: "POST",
+            url: "/Orders/Order_Details",
+            data: { OrderID: detailsID },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+
+    }
+
+    var deleted = function (delID) {
+
+        $.ajax({
+
+            type: "GET",
+            url: "/Orders/Delete",
+            data: { id: delID },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+
+
+    }
+    var showDetails = function (orderID) {
+
+        $.ajax({
+
+            type: "POST",
+            url: "/Orders/Order_Details",
+            data: { OrderID: orderID },
+            success: function (response) {
+
+                $("#myModalBodyDiv").html(response);
+
+                $("#myModal").modal("show");
+
+
+            }
+
+        })
+    }
+</script>
+
+

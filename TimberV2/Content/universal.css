@@ -1,0 +1,49 @@
+﻿
+@keyframes floatingUpDown {
+    0%, 100% {
+        transform: translateY(0.2rem);
+    }
+
+    50% {
+        transform: translateY(-0.2rem);
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+:root {
+    --temp-main-color: #04220e;
+    --main-color: green;
+    --black: #141215;
+    --mint: #CFFDE1;
+    --lightbrown: #FED049;
+    --skybluee: #2192FF;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    transition: all .2s linear;
+    transition: width none;
+}
+
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+}
+
+    html::-webkit-scrollbar {
+        width: 1rem;
+    }
+
+    html::-webkit-scrollbar-track {
+        background: greenyellow;
+    }
+
+    html::-webkit-scrollbar-thumb {
+        background: green;
+    }
+
+body {
+    background: var(--mint);
+}

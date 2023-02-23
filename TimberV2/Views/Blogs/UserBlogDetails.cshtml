@@ -1,0 +1,57 @@
+﻿@using TimberV2.Models;
+@{
+    ViewBag.Title = "UserBlogDetails";
+}
+
+
+
+<div class="card mb-3 border-opacity-50">
+    <img src="~/Content/blog/@Model.BlogView.BlogArt" class="card-img-top" alt="..." style="height:400px;width:auto;">
+    <div class="card-body">
+        <h2 class="card-title">@Model.BlogView.Title</h2>
+
+        <p class="card-text"><small class="text-muted">Last Updated In @Model.BlogView.Time</small></p>
+        <h6><p class="card-text">@Model.BlogView.Body</p></h6>
+    </div>
+</div>
+<div class="align-items-center">
+    <div class="row-col-12">
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <input type="text" name="comment">
+
+
+            <input type="submit" value="Comment" class="btn btn-success" />
+
+
+        }
+    </div>
+
+    @foreach (var cmnt in Model.CommentView)
+    {
+
+ 
+
+
+        <div class="card mt-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><span class="text-secondary"><i class="fa-solid fa-user"></i><i class="fa-solid fa-comment-dots"></i></span>  @cmnt.User.UserName </h5>
+               
+                <p class="card-text">@cmnt.CommentBody</p>
+                <p class="card-text"><i class="fa-solid fa-calendar-days"></i>  @cmnt.Time</p>
+             
+            </div>
+        </div>
+
+
+
+
+
+    }
+
+</div>
+

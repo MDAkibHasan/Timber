@@ -1,0 +1,51 @@
+﻿@model TimberV2.Models.Offer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = null;
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Offer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OfferTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfferTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OfferDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfferDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OfferArt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfferArt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HasDiscount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HasDiscount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OfferID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
